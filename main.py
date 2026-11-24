@@ -14,6 +14,9 @@ SENTENCE = (
 
 
 def main() -> None:
+    # The gate requires 1-240 characters, not only whitespace.
+    if not 1 <= len(SENTENCE) <= 240 or not SENTENCE.strip():
+        raise SystemExit("pitch must be 1-240 non-blank characters")
     os.makedirs("/output", exist_ok=True)
     with open("/output/entry.txt", "w", encoding="utf-8") as f:
         f.write(SENTENCE)
